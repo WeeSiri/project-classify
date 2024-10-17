@@ -1,0 +1,619 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ส่วนหัวเว็บ */
+header {
+    background-color: #212529;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาที่ด้านล่าง */
+    position: sticky; /* ทำให้ส่วนหัว "ติด" อยู่ที่ด้านบนของหน้าจอเมื่อเลื่อนลงมา */
+    top: 0; /* ปรับค่าตรงนี้ให้ตรงกับความสูงของ header */
+    z-index: 1000; /* ทำให้ส่วนหัวอยู่ด้านบนสุดเมื่อเลื่อน */
+} .content {
+    display: flex; /* ใช้ Flexbox สำหรับจัดเรียงโลโก้และข้อความ */
+    align-items: center; /* จัดแนวเนื้อหาให้อยู่กึ่งกลางแนวตั้ง */
+} .header-logo {
+    margin-right: 20px; /* เพิ่มระยะห่างระหว่างโลโก้และข้อความ */
+} .logo {
+    width: 40px;
+    height: auto;
+    border: none; /* ไม่มีกอบ */
+    box-shadow: none; /* ไม่ให้เงา */
+} .header-text {
+    display: flex;
+    flex-direction: column; /* จัดเรียงในแนวตั้ง */
+    justify-content: center; /* จัดให้เนื้อหาในแนวตั้งอยู่กลาง */
+    text-align: left;
+} .header-text h1 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #ffffff;
+} .header-text h2 {
+    font-size: 0.9em;
+    margin: 0;
+    color: #ffffff;
+} nav {
+    display: flex;
+} nav ul {
+    list-style-type: none; /* ไม่ให้แสดง bullet */
+    margin: 0;
+    padding: 0;
+    display: flex;
+} nav ul li {
+    margin-left: 20px;
+} nav ul li a {
+    text-decoration: none; /* ไม่ให้มีขีดเส้นใต้ */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px; /* ทำให้มุมของลิงก์มน */
+    transition: background-color 0.3s; /* เพิ่มการเปลี่ยนแปลงเมื่อเลื่อนเมาส์ */
+} .small-text {
+    font-size: 0.8em;
+    color: #bbbbbb;
+    margin-top: 5px;
+    text-align: center;
+} nav ul li a:hover {
+    background-color: #495057; /* เปลี่ยนสีพื้นหลังเมื่อเลื่อนเมาส์ */
+}
+
+/* ส่วนล่างเว็บ */
+.footer-bottom {
+    background-color: #212529;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* เพิ่มเงาที่ด้านบน */
+    padding: 2em 0;
+    font-family: Arial, sans-serif;
+    margin-top: 2em;
+} .footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+} .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 1em;
+} .footer-bottom .address {
+    font-size: 1em;
+    text-align: left;
+    line-height: 1.5em;
+    color: #ffffff;
+} .footer-bottom .copy {
+    display: flex;
+    justify-content: flex-end; /* จัดข้อความไปทางขวา */
+    align-items: center; /* จัดข้อความให้อยู่กลางๆ แนวตั้ง */
+    width: 100%;
+} .footer-bottom .copy ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* จัดข้อความลิขสิทธิ์ให้อยู่ขวา */
+} .footer-bottom .copy ul li {
+    color: #ffffff;
+    font-size: 0.9em;
+    text-align: right;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-bottom .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    } .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+        border-top: none;
+        padding-top: 0;
+    }
+    .footer-bottom .address,
+    .footer-bottom .copy ul li {
+        text-align: center;
+    }
+}
+
+.btn {
+    display: block; /* ให้ปุ่มอยู่ในบรรทัดใหม่ */
+    margin: 20px auto;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #212529;
+    border: none; /* ไม่มีขอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* ไม่มีการขีดเส้นใต้ */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+} .btn:hover {
+    background-color: #495057; /* สีเมื่อ hover */
+}
+
+
+
+
+
+
+
+
+/* login & register*/
+header.member {
+    background-color: #212529;
+    padding: 27.5px 40px;
+    display: flex;
+    justify-content: space-between; /* จัดเรียงซ้ายขวา */
+    align-items: center; /* จัดแนวกลาง */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} header.member nav {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
+    width: 100%;
+} header.member nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+} header.member nav ul li {
+    margin-left: 20px; /* ระยะห่างระหว่างลิงก์ */
+} header.member nav ul li a {
+    text-decoration: none; /* ไม่ให้มีขีดเส้นใต้ */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px; /* ทำให้มุมของลิงก์มน */
+    transition: background-color 0.3s;
+} header.member .small-text {
+    font-size: 0.8em;
+    color: #bbbbbb;
+    margin-top: 5px;
+    text-align: center;
+} header.member nav ul li a:hover {
+    background-color: #495057;
+}
+
+.form-member {
+    max-width: 40%;
+    width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #212529;
+    background: white;
+    border-radius: 10px; /* มุมโค้งมน */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* ซ่อนส่วนที่เกิน */
+} .title-member {
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+.input-data select {
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px; /* มุมโค้งมน */
+    margin-bottom: 10px; /* ระยะห่างระหว่าง input */
+    box-sizing: border-box; /* ควบคุมขนาด input */
+    background-color: #f8f8f8;
+    transition: border-color 0.3s;
+} .input-data select:focus {
+    border-color: #007bff; /* สีขอบเมื่อมีการโฟกัส */
+    outline: none; /* ไม่มีเส้นกรอบ */
+} select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    color: #ADB5BD;
+} select:focus {
+    color: #000000; /* สีตัวอักษรเมื่อคลิกเลือก */
+    outline: none;
+} select option {
+    color: #000000 /* สีของตัวเลือกใน dropdown */
+} select:valid {
+    color: #000000; /* คงสีดำเมื่อเลือกแล้ว */
+} select:placeholder-shown {
+    color: #ADB5BD; /* แสดงสีเริ่มต้นเมื่อไม่มีการเลือก */
+}
+
+.name-row {
+    display: flex;
+    justify-content: space-between; /* จัดให้มีระยะห่างระหว่างกล่อง */
+    margin-bottom: 10px;
+} .input-name {
+    flex: 1; /* ขยายกล่องให้เต็มพื้นที่ */
+    margin-right: 8px;
+} .input-name:last-child {
+    margin-right: 0; /* ไม่มีระยะห่างสำหรับกล่องสุดท้าย */
+} .input-name label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+} .input-name input {
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px; /* มุมโค้งมน */
+    margin-bottom: 10px; /* ระยะห่างระหว่าง input */
+    box-sizing: border-box; /* ควบคุมขนาด input */
+    background-color: #f8f8f8;
+} .input-name input:focus {
+    border-color: #007bff; /* สีขอบเมื่อมีการโฟกัส */
+    outline: none;
+} .input-name input::placeholder {
+    color: #ADB5BD; /* สีของ placeholder */
+    font-style: italic; /* ทำให้ตัวอักษรเป็นตัวเอียง */
+}
+
+.input-data input {
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px; /* มุมโค้งมน */
+    margin-bottom: 10px; /* ระยะห่างระหว่าง input */
+    box-sizing: border-box; /* ควบคุมขนาด input */
+    background-color: #f8f8f8;
+} .input-data label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 6px;
+} .input-data input:focus {
+    border-color: #007bff; /* สีขอบเมื่อมีการโฟกัส */
+    outline: none;
+} .input-data input::placeholder {
+    color: #ADB5BD; /* สีของ placeholder */
+    font-style: italic; /* ทำให้ตัวอักษรเป็นตัวเอียง */
+}
+
+.link-container {
+    display: block; /* จัดให้อยู่ในบรรทัดใหม่ */
+    text-align: center;
+    color: #007bff;
+    font-size: 14px;
+    margin-top: 10px;
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+} .link-container a {
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    color: #007bff;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+/* index */
+.title-main {
+    width: 50%;
+    margin: 50px auto 0;
+    font-size: 18px;
+    color: #ffffff;
+    background: #212529;
+    text-align: center;
+    border: 1px solid #212529;
+    border-bottom: none; /* ไม่มีขอบด้านล่าง */
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+
+.form-main {
+    max-width: 50%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #212529;
+    background: #ffffff;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* ซ่อนส่วนที่เกิน */
+    margin-bottom: 50px;
+} .input-main {
+    margin: 5px 0;
+    flex: 1; /* ขยายขนาดกล่องให้เท่ากัน */
+} .input-main label {
+    display: block; /* จัดให้ label เป็น block */
+    text-align: left;
+    margin: 5px 0;
+    margin-bottom: 5px; /* ระยะห่างระหว่าง label กับ input */
+}
+
+.input-subject {
+    margin: 14px 0;
+} .input-subject label {
+    margin-bottom: 5px;
+    font-size: 16px;
+} .input-subject select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    color: #000000;
+    border: 1px solid #d1d1d1;
+}
+
+
+
+
+
+
+
+
+/* result */
+.result-container {
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 50%;
+} .btn-result {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #212529;
+    border: none; /* ไม่มีขอบ */
+    border-radius: 10px; /* มุมโค้ง */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* ไม่มีการขีดเส้นใต้ */
+    margin-top: 30px;
+} .btn-result:hover {
+    background-color: #495057;
+} h1 {
+    text-align: center;
+} p {
+    font-size: 1.2em;
+    text-align: left;
+    margin: 20px auto;
+}
+
+
+
+
+
+
+
+
+/* home */
+.welcome-message {
+    display: none; /* ซ่อนข้อความโดยดีฟอลต์ */
+    margin: 0 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #007bff;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+} .show-welcome {
+    display: block; /* แสดงข้อความเมื่อมีผู้ใช้ล็อกอิน */
+}
+
+.title-home {
+    color: #000000;
+    text-align: center;
+    padding: 30px;
+    position: sticky; /* ทำให้ส่วนหัว "ติด" อยู่ที่ด้านบนของหน้าจอเมื่อเลื่อนลงมา */
+    top: 80px; /* ปรับค่าตรงนี้ให้ตรงกับความสูงของ header */
+    z-index: 90; /* ทำให้ส่วนหัวอยู่ด้านบนสุดเมื่อเลื่อน */
+}
+
+.click-to-view {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+} a.btn {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 20px;
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #212529;
+    align-items: center;
+    border-radius: 10px; /* มุมโค้ง */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* ไม่มีการขีดเส้นใต้ */
+    margin-top: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+} a.btn:hover {
+    background-color: #495057; /* สีเมื่อ hover */
+    transform: translateY(-2px); /* ขยับขึ้นเล็กน้อยเมื่อ hover */
+}
+
+h3 {
+    font-size: 30px;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    position: relative; /* เพิ่ม position เพื่อใช้กับ ::before */
+} h3::before {
+    content: ''; /* สร้างเนื้อหาว่าง */
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #212529; /* สีของเส้น */
+    margin: 20px auto; /* จัดกลางด้วย margin อัตโนมัติ และเว้นระยะห่างด้านบน */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 99%;
+    margin: auto;
+    padding: 0 auto;
+} .system, .step {
+    width: 48%;
+    background-color: #ffffff;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #212529; /* ขอบ */
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden; /* ซ่อนส่วนที่เกิน */
+}
+
+.decision-tree {
+    max-width: 97%;
+    width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #212529;
+    background: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+} .analys-result, .translate-rule {
+    max-width: 97%;
+    width: 100%;
+    margin: 101px auto;
+    padding: 20px;
+    border: 1px solid #212529;
+    background: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+}
+
+.decision-tree img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} .analys-result img {
+    max-width: 100%;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+} thead {
+    background-color: #212529;
+    color: #ffffff;
+} thead th {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+} table, th, td {
+    border: 1px solid rgb(181, 181, 181);
+} th, td {
+    padding: 8px;
+} table thead th, table tbody td {
+    text-align: center;
+    vertical-align: middle; /* จัดข้อความให้อยู่กึ่งกลางในแนวตั้ง */
+} table tbody td:first-child {
+    text-align: center; /* กำหนดให้ข้อความในคอลัมน์แรกอยู่ตรงกลาง */
+} table tbody td:nth-child(2), table tbody td:nth-child(3) {
+    text-align: left; /* จัดเรียงคอลัมน์คำที่ 2 ที่ 3 ให้ชิดซ้าย */
+}
+
+h4 {
+    font-size: 21px;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #007bff;
+} p {
+    font-size: 16px;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* ระยะห่างระหว่างบรรทัด */
+    margin: 10px 0;
+    padding: 0 15px;
+    text-align: justify;
+} .photo {
+    font-size: 20px;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* ระยะห่างระหว่างบรรทัด */
+    margin: 10px 0;
+    padding: 0 15px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+/* error */
+.error {
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: red;
+    background: #f2dede;
+    border-radius: 10px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/* success */
+.success {
+    color: #3c763d;
+    background: #dff9d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+}
